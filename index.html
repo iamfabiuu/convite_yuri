@@ -1,0 +1,2621 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SPIDER-YURI #7 • Terra-1001</title>
+    <meta
+      name="description"
+      content="Missão especial: festa do Yuri Levi! Abra o convite, desmascare o herói e prenda os vilões! 🕸️"
+    />
+
+    <!-- ===== PRÉVIA WHATSAPP / INSTAGRAM / FACEBOOK ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://conviteyuri.lumminin.com.br/" />
+    <meta
+      property="og:title"
+      content="🕷️ SPIDER-YURI #7 • Você foi convocado!"
+    />
+    <meta
+      property="og:description"
+      content="Um novo herói chegou à Terra-1001! Abra o convite e entre no multiverso do Yuri 🕸️"
+    />
+    <meta
+      property="og:image"
+      content="https://conviteyuri.lumminin.com.br/preview.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Convite Spider-Yuri 7 anos" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Spider-Yuri #7" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#ff1f3d" />
+
+    <!-- ===== ÍCONES ===== -->
+    <link
+      rel="icon"
+      href="icons8-homem-aranha-novo-500.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://conviteyuri.lumminin.com.br/icon-180.png"
+    />
+
+    <!-- ===== FONTES ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&family=Permanent+Marker&family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --r: #ff1f3d;
+        --b: #1a3cff;
+        --c: #5ab0ff; /* era ciano */
+        --m: #ff1f3d; /* era magenta */
+        --y: #dfe9ff; /* era amarelo, agora é azul-clarinho */
+        --k: #07040f;
+        --paper: #fff8e7;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--k);
+        color: #fff;
+        font-family: "Space Mono", monospace;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .B {
+        font-family: Bangers, cursive;
+        letter-spacing: 2px;
+      }
+      .M {
+        font-family: "Permanent Marker", cursive;
+      }
+      body:before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 2;
+        opacity: 0.12;
+        background: radial-gradient(#fff 1px, transparent 1.4px) 0 0/6px 6px;
+      }
+      body:after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 3;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.15) 0 1px,
+          transparent 1px 3px
+        );
+      }
+
+      /* ===== ANIMAÇÕES BASE ===== */
+      @keyframes rot {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spin {
+        0%,
+        100% {
+          transform: scale(1) rotate(-4deg);
+        }
+        50% {
+          transform: scale(1.1) rotate(4deg);
+        }
+      }
+      @keyframes pul {
+        to {
+          transform: rotate(3deg) scale(1.08);
+        }
+      }
+
+      /* ===== GLITCH ===== */
+      .glitch {
+        position: relative;
+        display: inline-block;
+      }
+      .glitch:before,
+      .glitch:after {
+        content: attr(data-t);
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .glitch:before {
+        color: var(--c);
+        transform: translate(-4px, 2px);
+        mix-blend-mode: screen;
+        animation: g1 2.5s infinite steps(1);
+      }
+      .glitch:after {
+        color: var(--m);
+        transform: translate(4px, -2px);
+        mix-blend-mode: screen;
+        animation: g2 3s infinite steps(1);
+      }
+      @keyframes g1 {
+        0%,
+        90% {
+          clip-path: inset(0);
+        }
+        92% {
+          clip-path: inset(20% 0 50% 0);
+          transform: translate(-10px, 0);
+        }
+        95% {
+          clip-path: inset(60% 0 10% 0);
+        }
+      }
+      @keyframes g2 {
+        0%,
+        88% {
+          clip-path: inset(0);
+        }
+        90% {
+          clip-path: inset(40% 0 30% 0);
+          transform: translate(10px, 0);
+        }
+        94% {
+          clip-path: inset(5% 0 80% 0);
+        }
+      }
+
+      /* ===== LOADER ===== */
+      #ld {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .portal {
+        position: absolute;
+        width: 150vmax;
+        height: 150vmax;
+        border-radius: 50%;
+        opacity: 0.35;
+        filter: blur(2px);
+        animation: rot 6s linear infinite;
+        background: repeating-conic-gradient(
+          var(--m) 0 10deg,
+          var(--b) 10deg 20deg,
+          var(--c) 20deg 30deg,
+          #000 30deg 40deg
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          transparent 15%,
+          #000 16%,
+          transparent 60%
+        );
+        mask: radial-gradient(
+          circle,
+          transparent 15%,
+          #000 16%,
+          transparent 60%
+        );
+      }
+      #logoL {
+        width: 200px;
+        z-index: 2;
+        animation: logoIn 1.5s ease-out both;
+        filter: drop-shadow(0 0 20px var(--r));
+      }
+      @keyframes logoIn {
+        0% {
+          transform: scale(0) rotate(-180deg);
+        }
+        100% {
+          transform: none;
+        }
+      }
+      .term {
+        z-index: 2;
+        margin-top: 24px;
+        font-size: 0.85rem;
+        color: var(--c);
+        min-height: 5.5em;
+        text-align: left;
+        width: min(90vw, 340px);
+      }
+      .term b {
+        color: var(--y);
+      }
+      .bar {
+        z-index: 2;
+        width: min(90vw, 340px);
+        height: 14px;
+        border: 2px solid #fff;
+        margin-top: 8px;
+        transform: skew(-15deg);
+      }
+      .bar i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          var(--r) 0 10px,
+          var(--y) 10px 20px
+        );
+      }
+      #go {
+        z-index: 2;
+        display: none;
+        margin-top: 24px;
+        font-size: 1.6rem;
+        padding: 12px 30px;
+        background: var(--y);
+        color: #000;
+        border: 4px solid #000;
+        box-shadow:
+          6px 6px 0 var(--r),
+          -6px -6px 0 var(--c);
+        cursor: pointer;
+        transform: rotate(-3deg);
+        animation: pul 0.8s infinite alternate;
+      }
+      #ld.out {
+        animation: out 0.9s forwards;
+      }
+      @keyframes out {
+        30% {
+          filter: invert(1) hue-rotate(90deg);
+        }
+        60% {
+          clip-path: inset(45% 0 45% 0);
+        }
+        100% {
+          clip-path: inset(50% 0 50% 0);
+          visibility: hidden;
+        }
+      }
+
+      /* ===== CAPA ===== */
+      .cover {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 14px;
+      }
+      .cv-wrap {
+        perspective: 1100px;
+      }
+      .cv {
+        width: min(94vw, 440px);
+        position: relative;
+        color: #000;
+        border: 5px solid #000;
+        overflow: hidden;
+        background: radial-gradient(
+          ellipse at center,
+          #fff8e7 55%,
+          #ecd9b0 100%
+        );
+        box-shadow:
+          inset 0 0 40px rgba(120, 80, 20, 0.35),
+          18px 18px 0 rgba(0, 0, 0, 0.6),
+          0 0 60px rgba(255, 31, 61, 0.35);
+        transform-style: preserve-3d;
+        transition: transform 0.15s ease-out;
+        will-change: transform;
+      }
+      .cv:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 14px;
+        z-index: 6;
+        pointer-events: none;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.45),
+          rgba(255, 255, 255, 0.25) 40%,
+          transparent
+        );
+      }
+      .cv:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 34px;
+        height: 34px;
+        z-index: 7;
+        pointer-events: none;
+        background: linear-gradient(
+          135deg,
+          transparent 50%,
+          #d9c193 50%,
+          #fff3d6 75%,
+          #bfa36d
+        );
+        box-shadow: -3px -3px 6px rgba(0, 0, 0, 0.3);
+      }
+      .cv-top {
+        display: flex;
+        align-items: stretch;
+        background: var(--r);
+        border-bottom: 5px solid #000;
+      }
+      .cv-corner {
+        width: 78px;
+        flex-shrink: 0;
+        background: #fff;
+        border-right: 5px solid #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4px 2px;
+        text-align: center;
+        font-size: 0.6rem;
+        line-height: 1.1;
+      }
+      .cv-corner svg {
+        width: 54px;
+        height: 54px;
+      }
+      .cv-corner b {
+        font-size: 1.9rem;
+        line-height: 1;
+      }
+      .cv-corner em {
+        font-style: normal;
+        background: var(--y);
+        border: 2px solid #000;
+        padding: 0 4px;
+        margin-top: 3px;
+        font-size: 0.9rem;
+      }
+      .cv-mast {
+        flex: 1;
+        padding: 4px 8px 10px;
+        overflow: hidden;
+      }
+      .cv-pre {
+        display: inline-block;
+        background: #000;
+        color: var(--y);
+        padding: 1px 8px;
+        font-size: 0.9rem;
+        transform: skew(-12deg);
+      }
+      .cv-title {
+        line-height: 0.85;
+        transform: skew(-8deg) rotate(-3deg);
+        margin-top: 4px;
+      }
+      .cv-title span {
+        display: block;
+        color: var(--y);
+        -webkit-text-stroke: 2px #000;
+        paint-order: stroke fill;
+        text-shadow:
+          1px 1px 0 #000,
+          2px 2px 0 #000,
+          3px 3px 0 #000,
+          4px 4px 0 #000,
+          5px 5px 0 #000,
+          6px 6px 0 var(--b),
+          7px 7px 0 var(--b);
+      }
+      .cv-title span:first-child {
+        font-size: clamp(1.8rem, 9vw, 2.6rem);
+      }
+      .cv-title span:last-child {
+        font-size: clamp(3.4rem, 17vw, 5rem);
+        margin-left: 20px;
+      }
+      .cv-tag {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        font-size: 1rem;
+        padding: 4px;
+        letter-spacing: 3px;
+      }
+      .cv-art {
+        position: relative;
+        aspect-ratio: 3/3.6;
+        overflow: hidden;
+        border-bottom: 5px solid #000;
+        background: var(--b);
+      }
+      .cv-speed {
+        position: absolute;
+        inset: -50%;
+        background: repeating-conic-gradient(
+          from 0deg at 50% 45%,
+          #fff 0 2deg,
+          transparent 2deg 9deg
+        );
+        opacity: 0.35;
+        animation: rot 40s linear infinite;
+      }
+      .cv-art img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(1.2) saturate(1.35);
+        -webkit-mask: radial-gradient(
+          ellipse 75% 85% at 50% 55%,
+          #000 70%,
+          transparent 100%
+        );
+        mask: radial-gradient(
+          ellipse 75% 85% at 50% 55%,
+          #000 70%,
+          transparent 100%
+        );
+      }
+      .cv-dots {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+        opacity: 0.4;
+        background: radial-gradient(var(--m) 1.2px, transparent 1.7px) 0 0/6px
+          6px;
+      }
+      .cv-cap {
+        position: absolute;
+        z-index: 3;
+        background: var(--y);
+        border: 3px solid #000;
+        padding: 5px 9px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        max-width: 62%;
+        box-shadow: 3px 3px 0 #000;
+      }
+      .cv-cap.a {
+        top: 10px;
+        left: 10px;
+        transform: rotate(-2deg);
+      }
+      .cv-cap.b {
+        bottom: 12px;
+        right: 12px;
+        transform: rotate(2deg);
+        background: #fff;
+      }
+      .cv-burst {
+        position: absolute;
+        z-index: 3;
+        top: 36%;
+        right: -4px;
+        width: 112px;
+        height: 112px;
+        background: var(--r);
+        color: #fff;
+        -webkit-text-stroke: 1px #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.1rem;
+        line-height: 1;
+        clip-path: polygon(
+          50% 0,
+          61% 20%,
+          85% 8%,
+          80% 33%,
+          100% 45%,
+          80% 58%,
+          90% 82%,
+          64% 76%,
+          50% 100%,
+          37% 77%,
+          10% 85%,
+          20% 58%,
+          0 45%,
+          20% 33%,
+          14% 8%,
+          39% 20%
+        );
+        animation: spin 3s ease-in-out infinite;
+      }
+      .cv-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        padding: 8px 40px 10px 18px;
+      }
+      .cv-seal {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 3px double #000;
+        background: #fff;
+        font-size: 0.5rem;
+        line-height: 1.05;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transform: rotate(-12deg);
+      }
+      .cv-banner {
+        background: var(--r);
+        color: #fff;
+        -webkit-text-stroke: 0.5px #000;
+        border: 3px solid #000;
+        padding: 3px 8px;
+        font-size: 0.95rem;
+        line-height: 1;
+        text-align: center;
+        transform: rotate(-3deg);
+        box-shadow: 3px 3px 0 #000;
+      }
+      .cv-barcode {
+        background: #fff;
+        border: 2px solid #000;
+        padding: 3px 5px;
+        text-align: center;
+        font-size: 0.45rem;
+        font-weight: 700;
+      }
+      .cv-barcode i {
+        display: block;
+        width: 70px;
+        height: 30px;
+        margin: 2px 0;
+        background: repeating-linear-gradient(
+          90deg,
+          #000 0 2px,
+          #fff 2px 3px,
+          #000 3px 4px,
+          #fff 4px 6px,
+          #000 6px 9px,
+          #fff 9px 10px,
+          #000 10px 11px,
+          #fff 11px 14px
+        );
+      }
+      .cv-shine {
+        position: absolute;
+        inset: 0;
+        z-index: 8;
+        pointer-events: none;
+        background: linear-gradient(
+          115deg,
+          transparent 35%,
+          rgba(255, 255, 255, 0.45) 48%,
+          transparent 60%
+        );
+        background-size: 300% 100%;
+        animation: shine 5s ease-in-out infinite;
+      }
+      @keyframes shine {
+        0%,
+        60% {
+          background-position: 120% 0;
+        }
+        100% {
+          background-position: -120% 0;
+        }
+      }
+
+      /* ===== PÁGINAS ===== */
+      .book {
+        max-width: 620px;
+        margin: 40px auto;
+        padding: 0 12px;
+        position: relative;
+        z-index: 1;
+      }
+      .pg {
+        position: relative;
+        background: #fff;
+        border: 4px solid #000;
+        padding: 10px;
+        margin-bottom: 46px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow:
+          12px 12px 0 rgba(0, 0, 0, 0.55),
+          0 0 0 6px var(--paper);
+      }
+      .pgn {
+        position: absolute;
+        bottom: -34px;
+        right: 6px;
+        color: var(--paper);
+        font-size: 1.3rem;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+      }
+      .q {
+        flex: 1;
+        position: relative;
+        min-height: 170px;
+        border: 4px solid #000;
+        overflow: hidden;
+        color: #000;
+        background: var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 44px 14px 40px;
+      }
+      .q > * {
+        position: relative;
+        z-index: 1;
+      }
+      .q-wide {
+        min-height: 220px;
+      }
+      .q-cut-r {
+        clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+        margin-right: -18px;
+      }
+      .q-cut-l {
+        clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+        margin-left: -18px;
+      }
+      .q-red {
+        background: var(--r);
+        color: #fff;
+      }
+      .q-blue {
+        background: var(--b);
+        min-height: 120px;
+        padding: 24px 14px;
+      }
+      .q-dark {
+        background: #0b0620;
+        color: #fff;
+      }
+      .q-speed:before {
+        content: "";
+        position: absolute;
+        inset: -60%;
+        background: repeating-conic-gradient(
+          #000 0 1.5deg,
+          transparent 1.5deg 7deg
+        );
+        opacity: 0.18;
+        animation: rot 50s linear infinite;
+      }
+      .q-red:before,
+      .q-blue:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        mix-blend-mode: multiply;
+        background: radial-gradient(
+            rgba(0, 0, 0, 0.35) 1.3px,
+            transparent 1.8px
+          )
+          0 0/7px 7px;
+      }
+      .q-logo {
+        width: 120px;
+        filter: drop-shadow(5px 5px 0 #000);
+        animation: spin 3s ease-in-out infinite;
+      }
+      .big-emoji {
+        font-size: 2.6rem;
+      }
+      .q-photo {
+        min-height: 300px;
+        padding: 0;
+        align-items: flex-end;
+      }
+      .q-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(1.2) saturate(1.3);
+        z-index: 0;
+      }
+      .q-photo:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        mix-blend-mode: multiply;
+        opacity: 0.35;
+        pointer-events: none;
+        background: radial-gradient(var(--m) 1.2px, transparent 1.7px) 0 0/6px
+          6px;
+      }
+      .q-radar {
+        min-height: 200px;
+        background: radial-gradient(circle, #13306b 0, #0b0620 70%);
+      }
+      .q-radar:before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: conic-gradient(rgba(0, 240, 255, 0.5), transparent 25%);
+        animation: rot 3s linear infinite;
+        box-shadow: inset 0 0 0 2px rgba(0, 240, 255, 0.4);
+      }
+
+      /* legendas, balões, sfx */
+      .lg {
+        position: absolute !important;
+        z-index: 4 !important;
+        background: var(--y);
+        color: #000;
+        border: 3px solid #000;
+        padding: 5px 9px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        max-width: 80%;
+        box-shadow: 3px 3px 0 #000;
+      }
+      .lg.tl {
+        top: -3px;
+        left: -3px;
+      }
+      .lg.br {
+        bottom: -3px;
+        right: -3px;
+      }
+      .balloon {
+        z-index: 4 !important;
+        background: #fff;
+        color: #000;
+        border: 3px solid #000;
+        border-radius: 50%/45%;
+        padding: 18px 22px;
+        margin: 14px;
+        margin-top: auto;
+        max-width: 75%;
+        text-align: center;
+        font-family: "Permanent Marker", cursive;
+        font-size: 1rem;
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+        align-self: flex-start;
+      }
+      .balloon:after {
+        content: "";
+        position: absolute;
+        bottom: -24px;
+        left: 30%;
+        width: 26px;
+        height: 28px;
+        background: #fff;
+        border-right: 3px solid #000;
+        border-bottom: 3px solid #000;
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+        transform: skew(-25deg);
+      }
+      .q-photo .balloon {
+        position: absolute !important;
+        top: 10px;
+        right: 10px;
+        align-self: auto;
+        margin: 0;
+      }
+      .q-photo .balloon:after {
+        left: auto;
+        right: 55%;
+        transform: skew(25deg) scaleX(-1);
+      }
+      .balloon.bot {
+        font-family: Bangers, cursive;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        background: #fff200;
+        transform: rotate(-2deg);
+      }
+      .balloon.bot:after {
+        background: #fff200;
+      }
+      .sfx {
+        position: absolute !important;
+        z-index: 5 !important;
+        font-size: clamp(2rem, 9vw, 3rem);
+        color: var(--c1, var(--y));
+        -webkit-text-stroke: 2px #000;
+        paint-order: stroke fill;
+        text-shadow: 4px 4px 0 #000;
+        animation: spin 2.4s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      /* contagem */
+      .cd {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        width: 100%;
+      }
+      .cd div {
+        border: 3px solid #fff;
+        padding: 10px 2px;
+        text-align: center;
+        background: #000;
+        box-shadow: 4px 4px 0 var(--m);
+        transform: skew(-6deg);
+      }
+      .cd span {
+        font-family: Bangers, cursive;
+        font-size: clamp(1.8rem, 9vw, 3rem);
+        display: block;
+        color: var(--y);
+      }
+      .cd small {
+        font-size: 0.6rem;
+        color: var(--c);
+      }
+
+      /* missão */
+      .q-map {
+        background: #f3e3b8;
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+        background-size: 22px 22px;
+      }
+      .mission {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+      .mission div {
+        background: #fff;
+        border: 3px solid #000;
+        padding: 8px;
+        box-shadow: 3px 3px 0 #000;
+      }
+      .mission .full {
+        grid-column: 1/-1;
+        background: var(--y);
+      }
+      .mission small {
+        display: block;
+        font-size: 0.6rem;
+        opacity: 0.7;
+      }
+      .mission b {
+        font-size: 1.4rem;
+      }
+
+      /* botões */
+      .btn {
+        display: block;
+        text-align: center;
+        font-family: Bangers, cursive;
+        letter-spacing: 2px;
+        font-size: 1.4rem;
+        padding: 12px 18px;
+        background: var(--y);
+        color: #000;
+        text-decoration: none;
+        border: 4px solid #000;
+        box-shadow: 5px 5px 0 #000;
+        transform: rotate(-1deg);
+        transition: 0.15s;
+        cursor: pointer;
+      }
+      .btn:hover {
+        transform: rotate(1deg) scale(1.04);
+      }
+      .btn:active {
+        transform: translate(4px, 4px);
+        box-shadow: 1px 1px 0 #000;
+      }
+      .btn.w {
+        background: #25d366;
+        color: #fff;
+        -webkit-text-stroke: 1px #000;
+        paint-order: stroke fill;
+      }
+
+      /* dossiê */
+      .q-file {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 14px 16px;
+        background: #e8d8a8;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent 0 27px,
+          rgba(0, 0, 0, 0.07) 27px 28px
+        );
+      }
+      .file-head {
+        background: #000;
+        color: var(--y);
+        margin: 0 -14px 12px;
+        padding: 6px;
+        text-align: center;
+        letter-spacing: 2px;
+      }
+      .file-body {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .file-body p {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+      }
+      .file-body small {
+        display: block;
+        font-size: 0.55rem;
+        opacity: 0.6;
+      }
+      .file-body b {
+        font-size: 1.2rem;
+      }
+      .clip {
+        width: 96px;
+        flex-shrink: 0;
+        background: #fff;
+        padding: 5px 5px 18px;
+        border: 1px solid #999;
+        transform: rotate(-4deg);
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+      }
+      .clip img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        filter: grayscale(0.3) contrast(1.1);
+      }
+      .clip:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 40%;
+        width: 14px;
+        height: 30px;
+        border: 3px solid #888;
+        border-radius: 8px;
+        z-index: 2;
+      }
+      .stat {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr auto;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-top: 6px;
+      }
+      .stat i {
+        height: 14px;
+        border: 2px solid #000;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+        transform: skew(-12deg);
+      }
+      .stat i:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 0;
+        transition: width 1.4s cubic-bezier(0.2, 1.4, 0.4, 1) 0.3s;
+        background: repeating-linear-gradient(
+          45deg,
+          var(--r) 0 8px,
+          var(--y) 8px 16px
+        );
+      }
+      .reveal.on .stat i:before {
+        width: var(--v);
+      }
+      .stat em {
+        font-family: Bangers, cursive;
+        font-style: normal;
+        font-size: 1rem;
+        background: #000;
+        color: var(--y);
+        padding: 0 6px;
+        min-width: 52px;
+        text-align: center;
+      }
+      .stamp {
+        position: absolute !important;
+        right: 10px;
+        bottom: 22%;
+        color: var(--r);
+        border: 4px solid var(--r);
+        padding: 2px 10px;
+        font-size: 1.5rem;
+        transform: rotate(-18deg);
+        opacity: 0.8;
+        mix-blend-mode: multiply;
+        letter-spacing: 2px;
+        pointer-events: none;
+      }
+
+      /* cartaz */
+      .q-poster {
+        flex-direction: column;
+        text-align: center;
+        background: var(--r);
+        color: #fff;
+        min-height: 320px;
+        background-image: repeating-conic-gradient(
+          from 0deg at 50% 40%,
+          rgba(255, 255, 255, 0.12) 0 6deg,
+          transparent 6deg 14deg
+        );
+      }
+      .poster-top {
+        background: #000;
+        padding: 2px 12px;
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        transform: skew(-10deg);
+      }
+      .poster-big {
+        font-size: clamp(2.6rem, 13vw, 4rem);
+        line-height: 0.9;
+        color: var(--y);
+        -webkit-text-stroke: 2px #000;
+        paint-order: stroke fill;
+        text-shadow:
+          4px 4px 0 #000,
+          6px 6px 0 var(--b);
+        margin: 8px 0;
+      }
+      .poster-point {
+        font-size: 3rem;
+        animation: spin 1s ease-in-out infinite;
+      }
+      .q-poster p {
+        font-size: 0.85rem;
+        margin: 6px 0;
+      }
+      .q-poster .btn {
+        width: 100%;
+      }
+
+      /* final */
+      .end {
+        text-align: center;
+        padding: 40px 14px 90px;
+        position: relative;
+        z-index: 1;
+      }
+      .end h3 {
+        font-size: clamp(2.2rem, 10vw, 3.6rem);
+        color: var(--y);
+      }
+      .fim {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 2rem;
+        background: var(--paper);
+        color: #000;
+        border: 4px solid #000;
+        padding: 4px 18px;
+        transform: rotate(-4deg);
+        box-shadow: 5px 5px 0 var(--r);
+      }
+      .editor {
+        max-width: 360px;
+        margin: 18px auto 0;
+        font-size: 0.75rem;
+        color: #000;
+        background: var(--y);
+        border: 3px solid #000;
+        padding: 8px;
+        text-align: left;
+      }
+
+      /* ===== EFEITOS ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(80px) rotate(4deg) scale(0.85);
+        transition: 0.7s cubic-bezier(0.2, 1.6, 0.4, 1);
+      }
+      .reveal.on {
+        opacity: 1;
+        transform: rotate(var(--rt, -1deg));
+      }
+      .fx {
+        position: fixed;
+        z-index: 50;
+        pointer-events: none;
+        font-family: Bangers, cursive;
+        font-size: 2.6rem;
+        color: var(--y);
+        -webkit-text-stroke: 2px #000;
+        text-shadow:
+          3px 3px 0 var(--m),
+          -3px -3px 0 var(--c);
+        animation: fx 0.9s forwards;
+      }
+      @keyframes fx {
+        0% {
+          transform: scale(0) rotate(-25deg);
+        }
+        40% {
+          transform: scale(1.4) rotate(8deg);
+        }
+        100% {
+          transform: scale(1) translateY(-40px);
+          opacity: 0;
+        }
+      }
+      .line {
+        position: fixed;
+        z-index: 49;
+        height: 3px;
+        background: #fff;
+        transform-origin: left;
+        pointer-events: none;
+        box-shadow: 0 0 6px var(--c);
+        animation: ln 0.5s forwards;
+      }
+      @keyframes ln {
+        from {
+          scale: 0 1;
+        }
+        50% {
+          scale: 1 1;
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      #snd {
+        position: fixed;
+        right: 14px;
+        bottom: 14px;
+        z-index: 60;
+        width: 52px;
+        height: 52px;
+        border: 3px solid #000;
+        background: var(--y);
+        font-size: 1.4rem;
+        box-shadow: 4px 4px 0 var(--r);
+        cursor: pointer;
+      }
+
+      /* ===== CELULAR ===== */
+      @media (max-width: 420px) {
+        .row:has(.q-cut-r) {
+          flex-direction: column;
+        }
+        .q-cut-r,
+        .q-cut-l {
+          clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+          margin: 0;
+        }
+        .q-cut-l {
+          clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+          margin-top: -14px;
+        }
+        .cd {
+          gap: 5px;
+        }
+        .cd div {
+          padding: 8px 0;
+        }
+        .stat {
+          grid-template-columns: 1fr 1fr auto;
+          font-size: 0.62rem;
+        }
+        .stamp {
+          font-size: 1.1rem;
+        }
+      }
+
+      /* ===== ACESSIBILIDADE ===== */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *:before,
+        *:after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+      /* ===== FOTO YURI03: herói à direita ===== */
+      .q-photo-r {
+        aspect-ratio: 4/5;
+      }
+      .q-photo-r img {
+        object-position: 72% 0%;
+      }
+
+      .q-photo-r .balloon {
+        top: 14px !important;
+        left: 12px !important;
+        right: auto !important;
+        max-width: 55%;
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        line-height: 1.25;
+        transform: rotate(-2deg);
+      }
+      /* rabinho apontando pro Yuri (direita/baixo) */
+      .q-photo-r .balloon:after {
+        left: auto;
+        right: 14%;
+        bottom: -20px;
+        width: 22px;
+        height: 24px;
+        transform: skew(-30deg);
+        scale: 1 1;
+      }
+
+      @media (min-width: 600px) {
+        .q-photo-r {
+          aspect-ratio: 1/1;
+        }
+      }
+      /* ===== LOADER 2.0 ===== */
+      .portal.p2 {
+        width: 90vmax;
+        height: 90vmax;
+        opacity: 0.25;
+        animation-direction: reverse;
+        animation-duration: 9s;
+      }
+      .web {
+        position: absolute;
+        width: min(38vw, 200px);
+        z-index: 1;
+        pointer-events: none;
+        animation: webIn 1.2s ease-out both;
+      }
+      .web.tl {
+        top: 0;
+        left: 0;
+      }
+      .web.br {
+        bottom: 0;
+        right: 0;
+        transform: rotate(180deg);
+      }
+      @keyframes webIn {
+        from {
+          opacity: 0;
+          scale: 0.4;
+        }
+      }
+
+      .sense {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+      }
+      .sense i {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 3px solid var(--r);
+        animation: sense 1.8s ease-out infinite;
+      }
+      .sense i:nth-child(2) {
+        animation-delay: 0.6s;
+        border-color: var(--c);
+      }
+      .sense i:nth-child(3) {
+        animation-delay: 1.2s;
+        border-color: var(--m);
+      }
+      @keyframes sense {
+        from {
+          scale: 0.6;
+          opacity: 1;
+        }
+        to {
+          scale: 2.2;
+          opacity: 0;
+        }
+      }
+      #logoL {
+        animation:
+          logoIn 1.5s ease-out both,
+          float 3s ease-in-out 1.5s infinite;
+      }
+      @keyframes float {
+        50% {
+          translate: 0 -10px;
+        }
+      }
+
+      .hud {
+        z-index: 2;
+        width: min(90vw, 340px);
+        display: flex;
+        justify-content: space-between;
+        margin-top: 22px;
+        color: var(--y);
+        font-size: 1rem;
+      }
+      .hud b {
+        color: #fff;
+        text-shadow: 2px 2px 0 var(--r);
+      }
+      .term {
+        margin-top: 8px;
+      }
+      .term .cur {
+        display: inline-block;
+        width: 8px;
+        height: 1em;
+        background: var(--c);
+        vertical-align: -2px;
+        animation: blink 0.6s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      .term .ok {
+        color: #3dff7a;
+      }
+      .bar {
+        position: relative;
+        overflow: hidden;
+      }
+      .bar i {
+        transition: width 0.25s ease-out;
+        background-size: 28px 28px;
+        animation: barMove 0.6s linear infinite;
+      }
+      @keyframes barMove {
+        to {
+          background-position: 28px 0;
+        }
+      }
+
+      #go {
+        animation:
+          goIn 0.5s cubic-bezier(0.2, 1.8, 0.4, 1) both,
+          pul 0.8s 0.5s infinite alternate;
+      }
+      @keyframes goIn {
+        from {
+          scale: 0;
+          rotate: -30deg;
+        }
+      }
+      #skip {
+        position: absolute;
+        z-index: 3;
+        bottom: 18px;
+        left: 50%;
+        translate: -50% 0;
+        background: none;
+        border: 0;
+        color: #fff;
+        opacity: 0.5;
+        font: inherit;
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      #skip:hover {
+        opacity: 1;
+      }
+
+      #ld.flash:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 9;
+        background: #fff;
+        animation: flash 0.35s forwards;
+      }
+      @keyframes flash {
+        to {
+          opacity: 0;
+        }
+      }
+      /* ===== LOADER ESTILO HQ ===== */
+      #ld {
+        background:
+          radial-gradient(circle, #0000 0 30%, #fff0 30%),
+          radial-gradient(#c8102e 22%, transparent 24%) 0 0/14px 14px,
+          #ffd400;
+        color: #111;
+      }
+      /* raios de explosão */
+      #ld .portal {
+        width: 200vmax;
+        height: 200vmax;
+        border-radius: 0;
+        opacity: 1;
+        filter: none;
+        background: repeating-conic-gradient(
+          #e4002b 0 7deg,
+          #ffd400 7deg 14deg
+        );
+        -webkit-mask: radial-gradient(circle, #0000 12%, #000 13%);
+        mask: radial-gradient(circle, #0000 12%, #000 13%);
+        animation: spin 40s linear infinite;
+      }
+      #ld .portal.p2 {
+        background: radial-gradient(#000 20%, transparent 22%) 0 0/10px 10px;
+        opacity: 0.12;
+        mask: none;
+        -webkit-mask: none;
+        animation: none;
+      }
+      @keyframes spin {
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      /* teias em tinta preta */
+      .web g {
+        stroke: #111;
+        opacity: 1;
+        stroke-width: 2;
+      }
+
+      /* sentido aranha: ondas em preto/branco */
+      .sense i {
+        border: 5px solid #111;
+        box-shadow: 0 0 0 4px #fff;
+      }
+      .sense i:nth-child(2),
+      .sense i:nth-child(3) {
+        border-color: #111;
+      }
+      #logoL {
+        filter: drop-shadow(6px 6px 0 #111);
+      }
+
+      /* HUD = título de capa */
+      .hud {
+        background: #fff;
+        border: 4px solid #111;
+        box-shadow: 6px 6px 0 #111;
+        padding: 6px 12px;
+        rotate: -2deg;
+        color: #e4002b;
+        font-size: 1.1rem;
+      }
+      .hud b {
+        color: #111;
+        text-shadow: none;
+      }
+
+      /* terminal = caixa de narração */
+      .term {
+        background: #fff6b0;
+        color: #111 !important;
+        border: 4px solid #111;
+        box-shadow: 6px 6px 0 #111;
+        padding: 12px 14px;
+        width: min(90vw, 340px);
+        rotate: 1deg;
+        font-family: "Comic Neue", "Bangers", cursive;
+        font-weight: 700;
+        text-shadow: none;
+      }
+      .term * {
+        color: #111 !important;
+      }
+      .term b {
+        color: #e4002b !important;
+      }
+      .term .ok {
+        color: #0a8f3c !important;
+      }
+      .term .cur {
+        background: #e4002b;
+      }
+
+      /* barra de progresso */
+      .bar {
+        width: min(90vw, 340px);
+        height: 22px;
+        background: #fff;
+        border: 4px solid #111;
+        box-shadow: 5px 5px 0 #111;
+        border-radius: 0;
+      }
+      .bar i {
+        background: repeating-linear-gradient(
+          -45deg,
+          #e4002b 0 10px,
+          #c8102e 10px 20px
+        );
+      }
+
+      /* botão */
+      #go {
+        background: #e4002b;
+        color: #fff;
+        border: 5px solid #111;
+        box-shadow: 8px 8px 0 #111;
+        text-shadow: 3px 3px 0 #111;
+        rotate: -3deg;
+      }
+      #go:hover {
+        translate: -3px -3px;
+        box-shadow: 11px 11px 0 #111;
+      }
+      #skip {
+        color: #111;
+        opacity: 0.8;
+        font-weight: 700;
+      }
+
+      /* flash de saída em retícula */
+      #ld.flash:after {
+        background: radial-gradient(#111 25%, #fff 27%) 0 0/8px 8px;
+      }
+      /* ===== PÁGINA FINAL HQ ===== */
+      .end {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        padding: 60px 20px 70px;
+        text-align: center;
+        background:
+          radial-gradient(#c8102e 22%, transparent 24%) 0 0/14px 14px,
+          #ffd400;
+        border-top: 6px solid #111;
+      }
+      .end-burst {
+        position: absolute;
+        inset: -50%;
+        z-index: -1;
+        background: repeating-conic-gradient(
+          #e4002b 0 7deg,
+          #ffd400 7deg 14deg
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          #0000 10%,
+          #000 11%,
+          #000 45%,
+          #0000 60%
+        );
+        mask: radial-gradient(circle, #0000 10%, #000 11%, #000 45%, #0000 60%);
+        animation: spin 50s linear infinite;
+      }
+      .end-logo {
+        filter: drop-shadow(6px 6px 0 #111);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* título com sombra dupla de tinta */
+      .end-title {
+        margin: 0;
+        font-size: clamp(2rem, 8vw, 3.4rem);
+        line-height: 1;
+        color: #fff;
+        rotate: -3deg;
+        letter-spacing: 1px;
+        -webkit-text-stroke: 2px #111;
+        text-shadow:
+          4px 4px 0 #e4002b,
+          8px 8px 0 #111;
+        background: #111;
+        padding: 8px 18px;
+        border: 4px solid #111;
+        box-shadow: 8px 8px 0 #e4002b;
+      }
+
+      /* carimbo FIM? */
+      .fim {
+        font-size: clamp(3rem, 14vw, 5.5rem);
+        color: #e4002b;
+        border: 7px double #e4002b;
+        padding: 0 22px;
+        border-radius: 12px;
+        rotate: -12deg;
+        background: #fff8;
+        -webkit-mask: radial-gradient(#000 60%, #0008 61%) 0 0/6px 6px; /* textura de carimbo */
+        animation: stamp 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+      }
+      @keyframes stamp {
+        from {
+          scale: 3;
+          opacity: 0;
+          rotate: -30deg;
+        }
+      }
+
+      /* selo próxima edição */
+      .next {
+        position: absolute;
+        top: 18px;
+        right: 14px;
+        width: 92px;
+        height: 92px;
+        display: grid;
+        place-content: center;
+        background: #fff;
+        border: 4px solid #111;
+        box-shadow: 5px 5px 0 #111;
+        clip-path: polygon(
+          50% 0,
+          61% 12%,
+          77% 5%,
+          80% 22%,
+          96% 25%,
+          89% 40%,
+          100% 50%,
+          89% 60%,
+          96% 75%,
+          80% 78%,
+          77% 95%,
+          61% 88%,
+          50% 100%,
+          39% 88%,
+          23% 95%,
+          20% 78%,
+          4% 75%,
+          11% 60%,
+          0 50%,
+          11% 40%,
+          4% 25%,
+          20% 22%,
+          23% 5%,
+          39% 12%
+        );
+        rotate: 12deg;
+        line-height: 1;
+        color: #111;
+      }
+      .next small {
+        font-size: 0.55rem;
+      }
+      .next strong {
+        font-size: 1.5rem;
+        color: #e4002b;
+      }
+      .next span {
+        font-size: 0.8rem;
+      }
+
+      /* nota do editor = caixa de narração com fita */
+      .editor {
+        position: relative;
+        max-width: 420px;
+        margin: 0;
+        background: #fff6b0;
+        color: #111;
+        border: 4px solid #111;
+        box-shadow: 7px 7px 0 #111;
+        padding: 16px 18px;
+        rotate: 1.5deg;
+        font-family: "Comic Neue", cursive;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+      .editor b {
+        color: #e4002b;
+      }
+      .editor:before {
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        translate: -50% 0;
+        rotate: -4deg;
+        width: 90px;
+        height: 24px;
+        background: #fff9;
+        border: 1px dashed #1115;
+      }
+      /* ===== SELO LUMMININ ===== */
+      .credit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 34px 20px 44px;
+        text-decoration: none;
+        color: #111;
+        background:
+          radial-gradient(#111 18%, transparent 20%) 0 0/10px 10px,
+          #fff;
+        border-top: 6px solid #111;
+      }
+      .credit small {
+        font-size: 0.85rem;
+        letter-spacing: 3px;
+      }
+      .credit-seal {
+        background: #fff;
+        border: 5px solid #111;
+        box-shadow: 7px 7px 0 #e4002b;
+        padding: 12px 20px;
+        rotate: -2deg;
+        transition: 0.2s;
+      }
+      .credit-seal img {
+        display: block;
+        height: 56px;
+        width: auto;
+      }
+      .credit-cta {
+        background: #25d366;
+        color: #fff;
+        border: 4px solid #111;
+        box-shadow: 5px 5px 0 #111;
+        padding: 6px 14px;
+        rotate: 2deg;
+        text-shadow: 2px 2px 0 #111;
+        font-size: 1rem;
+      }
+      .credit:hover .credit-seal {
+        translate: -3px -3px;
+        rotate: 0deg;
+        box-shadow: 10px 10px 0 #e4002b;
+      }
+      .credit:active .credit-seal {
+        scale: 0.95;
+      }
+      /* ===== PALETA SÓ AZUL + VERMELHO ===== */
+      #ld,
+      .end {
+        background:
+          radial-gradient(#0d2299 22%, transparent 24%) 0 0/14px 14px,
+          var(--b) !important;
+      }
+      #ld .portal,
+      .end-burst {
+        background: repeating-conic-gradient(
+          #e4002b 0 7deg,
+          var(--b) 7deg 14deg
+        ) !important;
+      }
+      #ld .portal.p2 {
+        background: radial-gradient(#000 20%, transparent 22%) 0 0/10px 10px !important;
+      }
+      .term,
+      .editor {
+        background: var(--y) !important;
+      }
+      .term .ok {
+        color: var(--b) !important;
+      }
+
+      .btn.w,
+      .credit-cta {
+        background: var(--b) !important;
+      }
+
+      .balloon.bot,
+      .balloon.bot:after {
+        background: var(--y) !important;
+      }
+
+      .q-map {
+        background-color: #e6ecff !important;
+      }
+      .q-file {
+        background-color: #d9e3ff !important;
+      }
+
+      .credit {
+        background:
+          radial-gradient(var(--b) 18%, transparent 20%) 0 0/10px 10px,
+          #fff !important;
+      }
+      .cd div {
+        box-shadow: 4px 4px 0 var(--r) !important;
+      }
+      /* ===== YURI PENDURADO ===== */
+      #hang {
+        position: fixed;
+        top: 0;
+        left: 12px;
+        z-index: 40;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform-origin: top center;
+        animation: sway 2.8s ease-in-out infinite;
+        pointer-events: none;
+      }
+      #thread {
+        width: 2px;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 0 1px #000;
+        transition: height 0.2s;
+      }
+      #hb {
+        pointer-events: auto;
+        cursor: pointer;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #000;
+        box-shadow: 4px 4px 0 var(--r);
+        background: var(--b);
+      }
+      #hb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        rotate: 180deg;
+      }
+      #hb:active {
+        scale: 0.9;
+      }
+      #hsay {
+        position: absolute;
+        bottom: -34px;
+        left: 60px;
+        white-space: nowrap;
+        background: #fff;
+        color: #000;
+        border: 3px solid #000;
+        padding: 3px 10px;
+        box-shadow: 3px 3px 0 var(--b);
+        opacity: 0;
+        scale: 0;
+        transition: 0.25s;
+      }
+      #hsay.on {
+        opacity: 1;
+        scale: 1;
+      }
+      @keyframes sway {
+        50% {
+          rotate: 6deg;
+        }
+        0%,
+        100% {
+          rotate: -6deg;
+        }
+      }
+
+      /* ===== DESMASCARE ===== */
+      .unmask {
+        min-height: 340px;
+        padding: 0;
+        cursor: pointer;
+      }
+      .unmask img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .mask {
+        position: absolute !important;
+        inset: 0;
+        z-index: 2 !important;
+        transition: 0.8s cubic-bezier(0.5, -0.4, 0.3, 1.4);
+        background:
+          repeating-radial-gradient(
+            circle at 50% 45%,
+            #0000 0 26px,
+            #000 27px 29px
+          ),
+          repeating-conic-gradient(
+            from 0deg at 50% 45%,
+            #0000 0 14deg,
+            #000 14deg 15deg
+          ),
+          var(--r);
+      }
+      .mask i {
+        position: absolute;
+        top: 30%;
+        width: 28%;
+        height: 22%;
+        background: #fff;
+        border: 7px solid #000;
+        border-radius: 80% 10% 80% 10%;
+      }
+      .mask i:first-child {
+        left: 16%;
+        rotate: 10deg;
+      }
+      .mask i:last-child {
+        right: 16%;
+        rotate: -10deg;
+        scale: -1 1;
+      }
+      .mask.shake {
+        animation: shk 0.3s;
+      }
+      .mask.off {
+        translate: 0 -120%;
+        rotate: -25deg;
+        opacity: 0;
+      }
+      @keyframes shk {
+        25% {
+          translate: -8px 0;
+        }
+        75% {
+          translate: 8px 0;
+        }
+      }
+
+      /* ===== MINI-GAME ===== */
+      .game {
+        min-height: 340px;
+        overflow: hidden;
+        background: radial-gradient(circle, #13306b, #07040f 75%);
+      }
+      .vil {
+        position: absolute !important;
+        z-index: 3 !important;
+        font-size: 2.4rem;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        transition:
+          left 1.2s,
+          top 1.2s;
+        filter: drop-shadow(3px 3px 0 var(--r));
+      }
+      .vil.caught {
+        pointer-events: none;
+        transition: 0.4s;
+        scale: 0.6;
+        background:
+          radial-gradient(circle, #0000 30%, #fff 32% 36%, #0000 38%),
+          repeating-conic-gradient(#fff 0 3deg, #0000 3deg 45deg);
+        border-radius: 50%;
+        opacity: 0.85;
+      }
+      .win {
+        text-align: center;
+        font-size: clamp(1.6rem, 7vw, 2.4rem);
+        color: #fff;
+        -webkit-text-stroke: 1px #000;
+        text-shadow:
+          4px 4px 0 var(--r),
+          7px 7px 0 var(--b);
+        animation: pul 0.6s infinite alternate;
+      }
+      .corner-logo {
+        width: 54px;
+        height: 54px;
+        object-fit: contain;
+      }
+      #logoL,
+      .q-logo,
+      .end-logo {
+        height: auto;
+        object-fit: contain;
+      }
+      /* ===== DESMASCARE: ajuste da foto ===== */
+      .unmask {
+        aspect-ratio: 4/5; /* quadro mais alto = cabe o corpo todo */
+        min-height: auto;
+      }
+      .unmask img {
+        object-position: 50% 8%; /* puxa a foto pra mostrar a cabeça */
+      }
+      @media (min-width: 600px) {
+        .unmask {
+          aspect-ratio: 1/1;
+        }
+      }
+
+      /* legenda de cima some na revelação */
+      .unmask .lg.tl {
+        transition: 0.4s;
+      }
+      .unmask.revealed .lg.tl {
+        opacity: 0;
+        translate: 0 -100%;
+      }
+
+      /* zoom de "revelação" na foto */
+      .unmask.revealed img {
+        animation: reveal 0.8s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+      }
+      @keyframes reveal {
+        from {
+          scale: 1.3;
+          filter: brightness(2) contrast(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hang">
+      <i id="thread"></i>
+      <div id="hb"><img src="yuri01.jpg" alt="Yuri" /></div>
+      <span id="hsay" class="B"></span>
+    </div>
+
+    <div id="ld" role="dialog" aria-label="Carregando convite">
+      <div class="portal"></div>
+      <div class="portal p2"></div>
+      <svg class="web tl" viewBox="0 0 100 100"><use href="#webC" /></svg>
+      <svg class="web br" viewBox="0 0 100 100"><use href="#webC" /></svg>
+
+      <div class="sense">
+        <img
+          id="logoL"
+          src="icons8-homem-aranha-novo-500.svg"
+          alt="Símbolo do Aranha"
+        />
+      </div>
+
+      <div class="hud B">
+        <span>SINAL DO MULTIVERSO</span><b id="pct">0%</b>
+      </div>
+      <div class="term" id="term" aria-live="polite"></div>
+      <div class="bar"><i id="bar"></i></div>
+
+      <button id="go" class="B">ABRIR A EDIÇÃO #7 ⚡</button>
+      <button id="skip">pular ›</button>
+    </div>
+    <button id="snd" aria-label="Ativar som">🔇</button>
+
+    <!-- teia reutilizável -->
+    <svg width="0" height="0" style="position: absolute">
+      <symbol id="webC" viewBox="0 0 100 100">
+        <g fill="none" stroke="#fff" stroke-width="1.2" opacity=".55">
+          <path d="M0 0L100 100M0 0L100 40M0 0L40 100M0 0L100 0M0 0L0 100" />
+          <path
+            d="M20 0Q18 18 0 20M45 0Q40 40 0 45M72 0Q62 62 0 72M100 0Q85 85 0 100"
+          />
+        </g>
+      </symbol>
+    </svg>
+
+    <!-- CAPA -->
+    <section class="cover">
+      <div class="cv-wrap reveal" style="--rt: -1.5deg">
+        <div class="cv" id="cv">
+          <div class="cv-top">
+            <div class="cv-corner">
+              <img
+                src="icons8-homem-aranha-novo-500.svg"
+                alt=""
+                class="corner-logo"
+              />
+              <b class="B">#7</b>
+              <span>JAN<br />2027</span>
+              <em class="B">R$ 0,07</em>
+            </div>
+            <div class="cv-mast">
+              <span class="cv-pre B">O ESPETACULAR</span>
+              <h1 class="cv-title B"><span>SPIDER</span><span>YURI</span></h1>
+            </div>
+          </div>
+
+          <div class="cv-tag B">★ A ESTREIA DO HERÓI DA TERRA-1001! ★</div>
+
+          <div class="cv-art">
+            <div class="cv-speed"></div>
+            <img src="yuri.jpeg" alt="Spider-Yuri" />
+            <div class="cv-dots"></div>
+            <div class="cv-cap a">
+              Nesta dimensão, só existe UM Homem-Aranha...
+            </div>
+            <div class="cv-burst B">7 ANOS<br />DE PODER!</div>
+            <div class="cv-cap b">...e o nome dele é <b>YURI LEVI!</b></div>
+          </div>
+
+          <div class="cv-bottom">
+            <div class="cv-seal B">
+              APROVADO<br />PELO<br />SENTIDO<br />ARANHA
+            </div>
+            <div class="cv-banner B">PRIMEIRA EDIÇÃO DE<br />COLECIONADOR!</div>
+            <div class="cv-barcode">
+              <small>LEVI COMICS</small><i></i><small>7 891001 100127</small>
+            </div>
+          </div>
+
+          <div class="cv-shine"></div>
+        </div>
+      </div>
+    </section>
+
+    <main class="book">
+      <!-- PÁG 01 -->
+      <section class="pg reveal" style="--rt: -1deg">
+        <span class="pgn B">01</span>
+        <div class="row">
+          <div class="q q-wide q-speed">
+            <div class="lg tl">Terra-1001. Há exatamente 7 anos...</div>
+            <img class="q-logo" src="icons8-homem-aranha-novo-500.svg" alt="" />
+
+            <span
+              class="sfx B"
+              style="--c1: var(--y); right: 8%; bottom: 10%; rotate: -12deg"
+              >FLASH!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="q q-cut-r">
+            <div class="lg tl">
+              ...nasceu um garoto com <b>sentido aranha</b>, sorriso de herói...
+            </div>
+            <span class="big-emoji">👶✨</span>
+          </div>
+          <div class="q q-cut-l q-red">
+            <div class="lg br">
+              ...e uma paixão ENORME por <b>brinquedos!</b>
+            </div>
+            <span class="big-emoji">🧸🚗🦖</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="q q-photo q-photo-r">
+            <img src="yuri03.jpg" alt="Yuri" />
+            <div class="balloon">
+              Ei, você aí! Venha comemorar meus <b>7 anos</b> comigo!
+            </div>
+            <span
+              class="sfx B"
+              style="--c1: var(--c); left: 6%; bottom: 8%; rotate: 8deg"
+              >THWIP!</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁG 02 -->
+      <section class="pg reveal" style="--rt: 1deg">
+        <span class="pgn B">02</span>
+        <div class="row">
+          <div class="q q-dark q-radar">
+            <div class="lg tl">Enquanto isso, no QG...</div>
+            <div class="balloon bot">
+              ALERTA! O portal do multiverso vai abrir!
+            </div>
+            <span
+              class="sfx B"
+              style="--c1: var(--m); right: 6%; top: 12%; rotate: 10deg"
+              >BZZT!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="q q-dark">
+            <div class="cd">
+              <div><span id="d">00</span><small>DIAS</small></div>
+              <div><span id="h">00</span><small>HORAS</small></div>
+              <div><span id="m">00</span><small>MIN</small></div>
+              <div><span id="s">00</span><small>SEG</small></div>
+            </div>
+            <div class="lg br">Cada segundo conta, herói!</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁG 03 -->
+      <section class="pg reveal" style="--rt: -1deg">
+        <span class="pgn B">03</span>
+        <div class="row">
+          <div class="q q-map">
+            <div class="lg tl">A missão foi revelada! 🗺️</div>
+            <div class="mission">
+              <div><small>DATA</small><b class="B">DOM • 10/01/27</b></div>
+              <div><small>HORA</small><b class="B">16:00</b></div>
+              <div class="full">
+                <small>LOCAL</small
+                ><b class="B">QG SECRETO DO SPIDER-YURI 📍</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="q q-speed q-blue">
+            <a
+              class="btn"
+              href="https://maps.app.goo.gl/kr24iZtKnR6vpcrU6"
+              target="_blank"
+              >BALANÇAR ATÉ O QG</a
+            >
+            <span
+              class="sfx B"
+              style="--c1: var(--y); right: 4%; top: -6%; rotate: -8deg"
+              >SWING!</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁG 04 -->
+      <section class="pg reveal" style="--rt: 1deg">
+        <span class="pgn B">04</span>
+        <div class="row">
+          <div class="q q-file">
+            <div class="file-head B">ARQUIVO S.H.I.E.L.D. • Nº 1001-7</div>
+            <div class="file-body">
+              <div class="clip"><img src="yuri01.jpg" alt="Yuri" /></div>
+              <div>
+                <p><small>CODINOME</small><b class="B">SPIDER-YURI</b></p>
+                <p><small>NOME REAL</small><b class="B">YURI LEVI</b></p>
+                <p><small>MISSÃO</small>Ganhar presentes 🎁</p>
+              </div>
+            </div>
+            <div class="stat">
+              <span>👕 UNIFORME</span><i style="--v: 80%"></i><em>8 ANOS</em>
+            </div>
+            <div class="stat">
+              <span>👟 BOTAS</span><i style="--v: 65%"></i><em>32/33</em>
+            </div>
+            <div class="stat">
+              <span>🧸 BRINQUEDOS</span><i style="--v: 100%"></i><em>MÁX!!</em>
+            </div>
+            <div class="stat">
+              <span>🕷️ SENTIDO ARANHA</span><i style="--v: 100%"></i><em>∞</em>
+            </div>
+            <div class="stamp B">CONFIDENCIAL</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁG 05 -->
+      <section class="pg reveal" style="--rt: -1deg">
+        <span class="pgn B">05</span>
+        <div class="row">
+          <div class="q q-poster">
+            <span class="poster-top B">A SOCIEDADE ARANHA</span>
+            <span class="poster-big B">PRECISA DE<br /><u>VOCÊ!</u></span>
+            <span class="poster-point">👉</span>
+            <p>
+              Confirme sua presença e garanta seu lugar no multiverso do Yuri!
+            </p>
+            <a class="btn w" id="wpp" target="_blank"
+              >📲 CONFIRMAR NO WHATSAPP</a
+            >
+            <span
+              class="sfx B"
+              style="--c1: var(--y); left: 4%; top: 4%; rotate: -14deg"
+              >KABOOM!</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- PÁG 06: DESMASCARE -->
+      <section class="pg reveal" style="--rt: 1deg">
+        <span class="pgn B">06</span>
+        <div class="row">
+          <div class="q unmask" id="unmask">
+            <img src="yuri01.jpg" alt="Yuri" />
+            <div class="mask" id="mask"><i></i><i></i></div>
+            <div class="lg tl">
+              Toque 3x pra revelar a identidade secreta! 🤫
+            </div>
+            <div class="lg br" id="mk">Identidade: ???</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁG 07: MINI-GAME -->
+      <section class="pg reveal" style="--rt: -1deg">
+        <span class="pgn B">07</span>
+        <div class="row">
+          <div class="q q-dark game" id="game">
+            <div class="lg tl">
+              Prenda os vilões na teia: <b id="gc">0</b>/7
+            </div>
+            <button class="btn" id="gStart">🕸️ COMEÇAR MISSÃO</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a
+      class="credit"
+      href="https://wa.me/5581936182297?text=Alerta%20do%20multiverso!%20%F0%9F%9A%A8%F0%9F%95%B7%EF%B8%8F%20Vi%20o%20convite%20do%20Spider-Yuri%20e%20meu%20sentido%20aranha%20disse%20que%20eu%20preciso%20de%20um%20assim.%20Bora%20criar%20o%20meu%3F"
+      target="_blank"
+      rel="noopener"
+      aria-label="Falar com a Lumminin no WhatsApp"
+    >
+      <small class="B">UMA PRODUÇÃO</small>
+      <span class="credit-seal">
+        <img src="logo_laranja.png" alt="Lumminin" />
+      </span>
+      <span class="credit-cta B">QUER UM CONVITE ASSIM? 💬</span>
+    </a>
+
+    <div class="end">
+      <div class="end-burst"></div>
+
+      <img class="end-logo" src="aranha.svg" alt="" width="110" />
+
+      <h3 class="B end-title" data-t="CONTINUA NA FESTA...">
+        CONTINUA NA FESTA...
+      </h3>
+
+      <div class="fim B">FIM?</div>
+
+      <div class="next B">
+        <small>PRÓXIMA EDIÇÃO</small>
+        <strong>10/01</strong>
+        <span>#7</span>
+      </div>
+
+      <p class="editor">
+        📝 <b>Nota do editor:</b> com grandes poderes vêm grandes festas! Não
+        perca o próximo capítulo dia <b>10/01</b>. 🕸️
+      </p>
+    </div>
+
+    <script>
+      const WHATS = "5581998082030"; // ⚠️ coloque o número aqui
+      wpp.href = `https://wa.me/${WHATS}?text=${encodeURIComponent("🕷️ Recruta confirmado! Estarei na festa de 7 anos do SPIDER-YURI dia 10/01/2027 às 16h! 🕸️")}`;
+
+      // Som: thwip + glitch gerados pelo código
+      let on = false,
+        ac;
+      function tone(f1, f2, d, type = "sawtooth", v = 0.12) {
+        if (!on) return;
+        ac = ac || new (AudioContext || webkitAudioContext)();
+        const o = ac.createOscillator(),
+          g = ac.createGain(),
+          t = ac.currentTime;
+        o.type = type;
+        o.frequency.setValueAtTime(f1, t);
+        o.frequency.exponentialRampToValueAtTime(f2, t + d);
+        g.gain.setValueAtTime(v, t);
+        g.gain.exponentialRampToValueAtTime(0.001, t + d);
+        o.connect(g).connect(ac.destination);
+        o.start();
+        o.stop(t + d);
+      }
+      const thwip = () => tone(2200, 150, 0.15);
+      snd.onclick = (e) => {
+        e.stopPropagation();
+        on = !on;
+        snd.textContent = on ? "🔊" : "🔇";
+        thwip();
+      };
+
+      // Loader: o terminal do multiverso
+      const L = [
+        "> escaneando o multiverso...",
+        "> Terra-616 ❌  Terra-1610 ❌",
+        "> Terra-1001 <b>DETECTADA ✔</b>",
+        "> herói: <b>SPIDER-YURI</b> • nível 7",
+        "> imprimindo a edição #7...",
+      ];
+      let p = 0,
+        li = 0;
+      const iv = setInterval(() => {
+        p += Math.random() * 5 + 1;
+        if (p > (li + 1) * 19 && li < L.length) {
+          term.innerHTML += L[li++] + "<br>";
+        }
+        bar.style.width = Math.min(p, 100) + "%";
+        if (p >= 100) {
+          clearInterval(iv);
+          go.style.display = "block";
+        }
+      }, 90);
+      go.onclick = (e) => {
+        e.stopPropagation();
+        on = true;
+        snd.textContent = "🔊";
+        tone(80, 1200, 0.5, "square", 0.08);
+        setTimeout(thwip, 400);
+        ld.classList.add("out");
+        setTimeout(() => {
+          fx(innerWidth / 2, innerHeight / 3, "THWIP!");
+          ld.remove();
+        }, 900);
+      };
+
+      // Toque: dispara teia + onomatopeia
+      const W = ["THWIP!", "POW!", "BAM!", "ZAP!", "WHAM!", "7!"];
+      function fx(x, y, t) {
+        const s = document.createElement("div");
+        s.className = "fx";
+        s.textContent = t || W[(Math.random() * W.length) | 0];
+        s.style.left = x - 50 + "px";
+        s.style.top = y - 40 + "px";
+        document.body.append(s);
+        setTimeout(() => s.remove(), 900);
+      }
+      document.addEventListener("click", (e) => {
+        if (e.target.closest("a")) return;
+        const sx = innerWidth - 30,
+          sy = innerHeight - 30,
+          dx = e.clientX - sx,
+          dy = e.clientY - sy;
+        const l = document.createElement("div");
+        l.className = "line";
+        l.style.left = sx + "px";
+        l.style.top = sy + "px";
+        l.style.width = Math.hypot(dx, dy) + "px";
+        l.style.rotate = Math.atan2(dy, dx) + "rad";
+        document.body.append(l);
+        setTimeout(() => l.remove(), 500);
+        thwip();
+        setTimeout(() => fx(e.clientX, e.clientY), 150);
+      });
+
+      // Páginas aparecem ao rolar
+      const ob = new IntersectionObserver(
+        (es) =>
+          es.forEach((x) => {
+            if (x.isIntersecting) {
+              x.target.classList.add("on");
+              x.target
+                .querySelectorAll(".stat i")
+                .forEach((i) =>
+                  i.style.setProperty("--v", i.style.getPropertyValue("--v")),
+                );
+              tone(400, 90, 0.12, "triangle", 0.1);
+              ob.unobserve(x.target);
+            }
+          }),
+        { threshold: 0.25 },
+      );
+      document.querySelectorAll(".reveal").forEach((r) => ob.observe(r));
+
+      // Contagem regressiva
+      const T = new Date("2027-01-10T16:00:00-03:00");
+      function tk() {
+        let d = Math.max(0, T - Date.now());
+        [
+          [864e5, 1e9],
+          [36e5, 24],
+          [6e4, 60],
+          [1e3, 60],
+        ].forEach(([u, m], i) => {
+          const el = [window.d, h, m_, s][i],
+            v = String(Math.floor(d / u) % m).padStart(2, "0");
+          if (el.textContent !== v) {
+            el.textContent = v;
+            el.classList.remove("tick");
+            void el.offsetWidth;
+            el.classList.add("tick");
+          }
+        });
+        if (!d)
+          document.querySelector(".cd").innerHTML =
+            "<h2 style='grid-column:1/-1' class='B'>🎉 É HOJE, HERÓIS!</h2>";
+      }
+      const m_ = document.getElementById("m");
+      tk();
+      setInterval(tk, 1000);
+      // Capa inclina como se estivesse na mão 📖
+      const cv = document.getElementById("cv");
+      const tilt = (x, y) =>
+        (cv.style.transform = `rotateY(${x * 16}deg) rotateX(${-y * 16}deg)`);
+      addEventListener("pointermove", (e) =>
+        tilt(e.clientX / innerWidth - 0.5, e.clientY / innerHeight - 0.5),
+      );
+      addEventListener(
+        "deviceorientation",
+        (e) => e.gamma != null && tilt(e.gamma / 60, (e.beta - 45) / 60),
+      );
+      // 🕸️ Yuri pendurado
+      const frases = [
+        "THWIP! 🕸️",
+        "Vem pra festa!",
+        "Dia 10/01! 🎉",
+        "Já confirmou?",
+        "Sou o Spider-Yuri!",
+        "7 anos de poder! 💪",
+      ];
+      addEventListener("scroll", () => {
+        const p = scrollY / (document.body.scrollHeight - innerHeight);
+        thread.style.height = 40 + p * innerHeight * 0.45 + "px";
+      });
+      hb.onclick = (e) => {
+        e.stopPropagation();
+        thwip();
+        hsay.textContent = frases[(Math.random() * frases.length) | 0];
+        hsay.classList.add("on");
+        clearTimeout(hb.t);
+        hb.t = setTimeout(() => hsay.classList.remove("on"), 1800);
+      };
+
+      // 🎭 Desmascare
+      let hits = 0;
+      unmask.onclick = () => {
+        if (hits >= 3) return;
+        hits++;
+        tone(300 + hits * 200, 100, 0.15, "square", 0.1);
+        mask.classList.remove("shake");
+        void mask.offsetWidth;
+        mask.classList.add("shake");
+        if (hits === 3) {
+          mask.classList.add("off");
+          mk.innerHTML = "Identidade: <b>YURI LEVI!</b> 😱";
+          setTimeout(() => tone(200, 1600, 0.5, "sawtooth", 0.1), 200);
+          unmask.classList.add("revealed");
+        }
+      };
+
+      // 🎮 Mini-game
+      const V = ["🦎", "🐙", "🦂", "🐍", "🦅", "⚡", "💀"];
+      let caught = 0,
+        spawn;
+      const rnd = () => Math.random() * 80 + 5 + "%";
+      gStart.onclick = (e) => {
+        e.stopPropagation();
+        gStart.remove();
+        spawn = setInterval(() => {
+          if (game.querySelectorAll(".vil:not(.caught)").length > 2) return;
+          const b = document.createElement("button");
+          b.className = "vil";
+          b.textContent = V[caught] || "💀";
+          b.style.left = rnd();
+          b.style.top = rnd();
+          game.append(b);
+          const mv = setInterval(() => {
+            b.style.left = rnd();
+            b.style.top = rnd();
+          }, 1200);
+          b.onclick = () => {
+            clearInterval(mv);
+            b.classList.add("caught");
+            thwip();
+            gc.textContent = ++caught;
+            if (caught === 7) {
+              clearInterval(spawn);
+              game
+                .querySelectorAll(".vil:not(.caught)")
+                .forEach((v) => v.remove());
+              game.insertAdjacentHTML(
+                "beforeend",
+                "<div class='win B'>🏆 VILÕES PRESOS!<br>VOCÊ É UM<br>SPIDER-CONVIDADO!</div>",
+              );
+              tone(400, 2000, 0.6, "triangle", 0.12);
+            }
+          };
+        }, 700);
+      };
+    </script>
+  </body>
+</html>
